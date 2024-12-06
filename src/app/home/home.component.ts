@@ -7,21 +7,7 @@ import HOUSING_LOCATION_LIST from '../constants/HOUSING_LOCATION_LIST';
 @Component({
   selector: 'app-home',
   imports: [CommonModule, HousingLocationComponent],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" />
-        <button class="primary" type="button">Search</button>
-      </form>
-    </section>
-    <section class="results">
-      @for (housingLocation of housingLocationList; track housingLocation.id) {
-      <app-housing-location
-        [housingLocation]="housingLocation"
-      ></app-housing-location>
-      }
-    </section>
-  `,
+  templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
