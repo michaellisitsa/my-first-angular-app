@@ -15,10 +15,11 @@ import HOUSING_LOCATION_LIST from '../constants/HOUSING_LOCATION_LIST';
       </form>
     </section>
     <section class="results">
+      @for (housingLocation of housingLocationList; track housingLocation.id) {
       <app-housing-location
-        *ngFor="let housingLocation of housingLocationList"
         [housingLocation]="housingLocation"
       ></app-housing-location>
+      }
     </section>
   `,
   styleUrls: ['./home.component.css'],
