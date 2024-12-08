@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Housinglocation } from '../housinglocation';
+import { HousingService } from '../housing.service';
 
 @Component({
   selector: 'app-details',
@@ -9,8 +10,14 @@ import { Observable } from 'rxjs';
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  housingLocationId = -1;
-  constructor(private route: ActivatedRoute) {
-    this.housingLocationId = Number(route.snapshot.params['id']);
+  housingLocation: Housinglocation | undefined;
+
+  constructor(
+    private route: ActivatedRoute,
+    private housingService: HousingService
+  ) {
+    const housingLocationId = Number(route.snapshot.params['id']);
+    this.housingLocation =
+      this.housingService.getHousingLocationById(housingLocationId);
   }
 }

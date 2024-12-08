@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { Housinglocation } from '../housinglocation';
-import HOUSING_LOCATION_LIST from '../constants/HOUSING_LOCATION_LIST';
 import { HousingService } from '../housing.service';
 
 @Component({
