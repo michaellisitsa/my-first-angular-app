@@ -1,12 +1,13 @@
-import { HomeComponent } from './home/home.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [HomeComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'my-first-angular-app';
+  title = 'homes';
 }
