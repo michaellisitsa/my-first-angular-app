@@ -1,24 +1,22 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { HousingService } from '../housing.service';
 import { CommonModule } from '@angular/common';
-import { shareReplay } from 'rxjs/operators';
+import {
+  DetailFormComponent,
+  IApplyFormKeys,
+} from '../detail-form/detail-form.component';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, DetailFormComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
   // housingLocation: Housinglocation | undefined;
-  applyForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl(''),
-  });
 
   housingService = inject(HousingService);
   route = inject(ActivatedRoute);
@@ -29,11 +27,11 @@ export class DetailsComponent {
 
   constructor() {}
 
-  submitApplication() {
+  submitApplication(applyForm: FormGroup<IApplyFormKeys>) {
     this.housingService.submitApplication(
-      this.applyForm.value.firstName ?? '',
-      this.applyForm.value.lastName ?? '',
-      this.applyForm.value.email ?? ''
+      applyForm.value.firstName ?? '',
+      applyForm.value.lastName ?? '',
+      applyForm.value.email ?? ''
     );
   }
 }

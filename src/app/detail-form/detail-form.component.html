@@ -1,0 +1,9 @@
+<form [formGroup]="applyForm" (submit)="submitForm()">
+  <label for="first-name">First Name</label>
+  <input type="text" id="first-name" formControlName="firstName" />
+  <label for="last-name">Last Name</label>
+  <input type="text" id="last-name" formControlName="lastName" />
+  <label for="email">Email</label>
+  <input type="email" id="email" formControlName="email" />
+  <button type="submit" class="" primary>Apply Now</button>
+</form>
