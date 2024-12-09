@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { Housinglocation } from '../housinglocation';
 import { HousingService } from '../housing.service';
 import { CommonModule } from '@angular/common';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-details',
@@ -13,24 +13,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  housingLocation: Housinglocation | undefined;
+  // housingLocation: Housinglocation | undefined;
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     email: new FormControl(''),
   });
 
-  constructor(
-    private route: ActivatedRoute,
-    private housingService: HousingService
-  ) {
-    const housingLocationId = Number(route.snapshot.params['id']);
-    this.housingService
-      .getHousingLocationById(housingLocationId)
-      .then((housingLocation) => {
-        this.housingLocation = housingLocation;
-      });
-  }
+  housingService = inject(HousingService);
+  route = inject(ActivatedRoute);
+
+  housingLocation$ = this.housingService
+    .getHousingLocationById(Number(this.route.snapshot.params['id']))
+    .pipe(shareReplay(1));
+
+  constructor() {}
 
   submitApplication() {
     this.housingService.submitApplication(

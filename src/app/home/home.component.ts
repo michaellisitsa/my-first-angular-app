@@ -18,7 +18,7 @@ export class HomeComponent {
   constructor() {
     this.housingService
       .getAllHousingLocations()
-      .then((housingLocationList: Housinglocation[]) => {
+      .subscribe((housingLocationList: Housinglocation[]) => {
         this.housingLocationList = housingLocationList;
         this.filteredLocationList = housingLocationList;
       });
