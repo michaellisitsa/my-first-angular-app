@@ -23,9 +23,9 @@ export class DetailsComponent {
   housingService = inject(HousingService);
   route = inject(ActivatedRoute);
 
-  housingLocation$ = this.housingService
-    .getHousingLocationById(Number(this.route.snapshot.params['id']))
-    .pipe(shareReplay(1));
+  housingLocation$ = this.housingService.getHousingLocationById(
+    Number(this.route.snapshot.params['id'])
+  );
 
   constructor() {}
 

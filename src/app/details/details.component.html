@@ -1,27 +1,26 @@
+@let housingLocastion = housingLocation$ | async;
 <article>
   <img
     class="listing-photo"
-    [src]="(housingLocation$ | async)?.photo"
-    alt="Exterior photo of {{ (housingLocation$ | async)?.name }}"
+    [src]="housingLocastion?.photo"
+    alt="Exterior photo of {{ housingLocastion?.name }}"
     crossorigin
   />
   <section class="listing-description">
-    <h2 class="listing-heading">{{ (housingLocation$ | async)?.name }}</h2>
+    <h2 class="listing-heading">{{ housingLocastion?.name }}</h2>
     <p class="listing-location">
-      {{ (housingLocation$ | async)?.city }},
-      {{ (housingLocation$ | async)?.state }}
+      {{ housingLocastion?.city }},
+      {{ housingLocastion?.state }}
     </p>
   </section>
   <section class="listing-features">
     <h2 class="section-heading">About this housing location</h2>
     <ul>
-      <li>Units available: {{ (housingLocation$ | async)?.availableUnits }}</li>
-      <li>
-        Does this location have wifi: {{ (housingLocation$ | async)?.wifi }}
-      </li>
+      <li>Units available: {{ housingLocastion?.availableUnits }}</li>
+      <li>Does this location have wifi: {{ housingLocastion?.wifi }}</li>
       <li>
         Does this location have laundry:
-        {{ (housingLocation$ | async)?.laundry }}
+        {{ housingLocastion?.laundry }}
       </li>
     </ul>
   </section>
