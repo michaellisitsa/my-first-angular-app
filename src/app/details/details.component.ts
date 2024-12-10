@@ -8,10 +8,16 @@ import {
   DetailFormComponent,
   IApplyFormKeys,
 } from '../detail-form/detail-form.component';
+import { CustomCardComponent } from '../custom-card/custom-card.component';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule, ReactiveFormsModule, DetailFormComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    DetailFormComponent,
+    CustomCardComponent,
+  ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
 })

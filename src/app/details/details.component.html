@@ -1,31 +1,36 @@
-@let housingLocastion = housingLocation$ | async;
+@let housingLocation = housingLocation$ | async;
 <article>
   <img
     class="listing-photo"
-    [src]="housingLocastion?.photo"
-    alt="Exterior photo of {{ housingLocastion?.name }}"
+    [src]="housingLocation?.photo"
+    alt="Exterior photo of {{ housingLocation?.name }}"
     crossorigin
   />
   <section class="listing-description">
-    <h2 class="listing-heading">{{ housingLocastion?.name }}</h2>
+    <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
     <p class="listing-location">
-      {{ housingLocastion?.city }},
-      {{ housingLocastion?.state }}
+      {{ housingLocation?.city }},
+      {{ housingLocation?.state }}
     </p>
   </section>
   <section class="listing-features">
     <h2 class="section-heading">About this housing location</h2>
     <ul>
-      <li>Units available: {{ housingLocastion?.availableUnits }}</li>
-      <li>Does this location have wifi: {{ housingLocastion?.wifi }}</li>
+      <li>Units available: {{ housingLocation?.availableUnits }}</li>
+      <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
       <li>
         Does this location have laundry:
-        {{ housingLocastion?.laundry }}
+        {{ housingLocation?.laundry }}
       </li>
     </ul>
   </section>
   <section class="listing-apply">
     <h2 class="section-heading">Apply now to live here</h2>
-    <app-detail-form (formSubmission)="submitApplication($event)" />
+    <app-custom-card>
+      <div card-title>Hello</div>
+      <div card-body>
+        <app-detail-form (formSubmission)="submitApplication($event)" />
+      </div>
+    </app-custom-card>
   </section>
 </article>

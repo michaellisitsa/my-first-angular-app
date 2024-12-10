@@ -1,0 +1,12 @@
+.card-shadow {
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 1px 3px 1px black;
+}
+
+.title-color {
+  color: red;
+}
+
+.body-color {
+  color: blue;
+}
