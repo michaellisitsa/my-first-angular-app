@@ -4,10 +4,19 @@
     <button class="primary" type="submit">Search</button>
   </form>
 </section>
+<button (click)="replaceLocationList($event)">Replace location list</button>
 <section class="results">
   @for (housingLocation of filteredLocationList; track housingLocation.id) {
-  <app-housing-location
-    [housingLocation]="housingLocation"
-  ></app-housing-location>
+  <div>
+    <button
+      (click)="jumbleValues($event, housingLocation, housingLocationComponent)"
+    >
+      Reverse (mutate)
+    </button>
+    <app-housing-location
+      [housingLocation]="housingLocation"
+      #housingLocationComponent
+    ></app-housing-location>
+  </div>
   }
 </section>

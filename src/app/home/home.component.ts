@@ -36,4 +36,18 @@ export class HomeComponent {
       return location.name.toLowerCase().includes(text.toLowerCase());
     });
   }
+
+  jumbleValues(
+    event: MouseEvent,
+    housingLocation: Housinglocation,
+    housingLocationComponent: HousingLocationComponent
+  ) {
+    event.preventDefault();
+    housingLocation.name = housingLocation.name.split('').reverse().join('');
+    housingLocationComponent.markForCheck();
+  }
+  replaceLocationList(event: MouseEvent) {
+    event.preventDefault();
+    this.filteredLocationList = this.housingLocationList;
+  }
 }
