@@ -9,6 +9,7 @@ import {
   IApplyFormKeys,
 } from '../detail-form/detail-form.component';
 import { CustomCardComponent } from '../custom-card/custom-card.component';
+import { DetailFormTemplateDrivenComponent } from '../detail-form-template-driven/detail-form-template-driven.component';
 
 @Component({
   selector: 'app-details',
@@ -17,6 +18,7 @@ import { CustomCardComponent } from '../custom-card/custom-card.component';
     ReactiveFormsModule,
     DetailFormComponent,
     CustomCardComponent,
+    DetailFormTemplateDrivenComponent,
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',

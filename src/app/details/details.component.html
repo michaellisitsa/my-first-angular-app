@@ -27,9 +27,15 @@
   <section class="listing-apply">
     <h2 class="section-heading">Apply now to live here</h2>
     <app-custom-card>
-      <div card-title>Hello</div>
+      <div card-title>React Apply Form</div>
       <div card-body>
         <app-detail-form (formSubmission)="submitApplication($event)" />
+      </div>
+    </app-custom-card>
+    <app-custom-card>
+      <div card-title>Template Driven Apply Form</div>
+      <div card-body>
+        <app-detail-form-template-driven />
       </div>
     </app-custom-card>
   </section>
